@@ -1,15 +1,662 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>NazlyCake - Repostería Artesanal</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        h1 { color: #d63384; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nazly Cake</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#fff;
+overflow-x:hidden;
+}
+
+/* MENU */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+padding:25px 60px;
+background:rgba(255,255,255,.85);
+backdrop-filter:blur(10px);
+}
+
+nav ul{
+display:flex;
+justify-content:center;
+gap:60px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+color:#5a2d22;
+font-weight:600;
+transition:.3s;
+}
+
+nav a:hover{
+color:#ff5d8f;
+}
+
+/* HERO */
+
+/* Corrección para que el contenido no se monte */
+.hero {
+    /* Si la imagen sigue cortada, reduce este valor a algo como 80vh o 600px */
+    height: 100vh; 
+    
+    background-image: url("img/fondoweb1.png");
+    
+    /* Usamos 'contain' para que la imagen se vea completa */
+    background-size: contain;       
+    
+    /* 
+       Aquí está el truco: 
+       '0%' es horizontal (izquierda)
+       '10%' es vertical (baja la imagen un 10% respecto al borde superior)
+       Puedes cambiar '10%' por '15%' o '20%' para bajarla más.
+    */
+    background-position: 0% 10%;  
+    
+    background-repeat: no-repeat; 
+    
+    background-color: #fdf5f6; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#nosotros {
+    display: block; /* Asegura que se comporte como un bloque */
+    width: 100%;
+    margin-top: 20px; /* Espacio extra de seguridad */
+}
+
+/* TEXTO */
+
+.hero-content{
+
+text-align:center;
+max-width:700px;
+
+}
+
+.logo-title{
+
+font-family:'Pacifico',cursive;
+
+font-size:120px;
+
+line-height:1;
+
+color:#ff5d8f;
+
+text-shadow:
+4px 4px 0 #1ac7ec,
+6px 6px 15px rgba(0,0,0,.15);
+
+}
+
+.hero-content p{
+
+font-size:28px;
+margin-top:20px;
+color:#5a2d22;
+
+}
+
+.btn-principal{
+
+display:inline-block;
+
+margin-top:25px;
+
+padding:15px 40px;
+
+background:#ff5d8f;
+
+border-radius:40px;
+
+text-decoration:none;
+color:white;
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.btn-principal:hover{
+
+transform:translateY(-3px);
+
+}
+
+
+/* CARRUSEL - Estilo Tira de Película con fondo azul */
+.carousel {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 220px;
+    height: 750px;
+    background: #f8d9df; /* Cambiado a azul claro tipo turquesa */
+    border: 6px solid #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.track {
+    transition: .5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slide img {
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    display: block;
+}
+
+/* CONTROLES - Alineados a la izquierda de la tira */
+.controls {
+    position: absolute;
+    right: 280px; /* Ajustado para quedar fuera de la tira */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 10;
+}
+
+.controls button {
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    background: #ff5d8f;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+
+position:fixed;
+
+bottom:30px;
+right:30px;
+
+background:#25D366;
+
+color:white;
+
+padding:16px 25px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+font-weight:600;
+
+z-index:999;
+
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+
+}
+
+/* SECCIONES */
+
+section{
+
+padding:100px 10%;
+
+}
+
+.titulo{
+
+text-align:center;
+margin-bottom:50px;
+
+color:#5a2d22;
+
+font-size:40px;
+
+}
+
+/* PRODUCTOS */
+
+.productos{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+
+}
+
+.card{
+
+background:white;
+
+border-radius:20px;
+
+overflow:hidden;
+
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+
+}
+
+.card img{
+
+width:100%;
+height:220px;
+object-fit:cover;
+
+}
+
+.card h3{
+
+padding:20px;
+
+text-align:center;
+
+}
+
+/* FOOTER */
+
+footer{
+
+background:#f8d9df;
+
+padding:60px 10%;
+
+}
+
+.footer-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:40px;
+
+}
+
+footer h3{
+
+margin-bottom:15px;
+color:#5a2d22;
+
+}
+
+footer p{
+
+line-height:1.8;
+color:#5a2d22;
+
+}
+
+.copy{
+
+margin-top:40px;
+padding-top:20px;
+
+border-top:1px solid rgba(0,0,0,.1);
+
+text-align:center;
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+
+.carousel,
+.controls{
+display:none;
+}
+
+.logo-title{
+font-size:80px;
+}
+
+}
+
+@media(max-width:768px){
+
+header{
+padding:20px;
+}
+
+nav ul{
+gap:15px;
+flex-wrap:wrap;
+}
+
+.logo-title{
+font-size:55px;
+}
+
+.hero-content p{
+font-size:20px;
+}
+
+}
+ /* Para los títulos (usando Lobster) */
+h1, .logo-text {
+    font-family: 'Lobster', cursive;
+}
+
+/* Para el resto del texto (usando Poppins) */
+body, p, button {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Ejemplo de lo que deberías implementar */
+.contenedor-imagen {
+    position: relative; /* Esto es la clave */
+    display: inline-block;
+}
+
+/* Modificación para los controles */
+.controls {
+    position: absolute;
+    right: 310px; /* Separamos los botones del borde derecho del carrusel */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 10; /* Aseguramos que estén por encima de otros elementos */
+}
+.social-links {
+    text-align: center;
+    padding: 20px;
+    background-color: #fdf5f6; /* El rosa pastel que venimos usando */
+}
+
+.social-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #ff5d8f; /* El rosa de tu carrusel */
+    font-weight: 600;
+}
+header {
+    display: flex;
+    justify-content: space-between; /* Separa el logo del menú */
+    align-items: center;            /* Alinea ambos verticalmente */
+    padding: 10px 50px;
+    background-color: #fff;         /* O el color que prefieras */
+}
+
+.logo img {
+    width: 120px;                   /* Ajusta este tamaño a tu gusto */
+    height: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+</style>
 </head>
 <body>
-    <h1>¡Bienvenidos a NazlyCake!</h1>
-    <p>Próximamente los mejores pasteles artesanales.</p>
+
+<header>
+<div class="logo">
+        <a href="#">
+            <img src="img/logonuenvo1.png" alt="Logo de Nazly Cake">
+        </a>
+    </div>
+<nav>
+
+<ul>
+
+<li><a href="#">Inicio</a></li>
+<li><a href="#productos">Tortas</a></li>
+<li><a href="#productos">Postres</a></li>
+<li><a href="#productos">Cupcakes</a></li>
+<li><a href="#nosotros">Quiénes Somos</a></li>
+<li><a href="#contacto">Contacto</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1 class="logo-title">
+Nazly Cake
+</h1>
+
+<p>
+Endulzamos tus momentos especiales
+</p>
+
+
+</div>
+
+<div class="carousel">
+
+<div class="track" id="track">
+
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
+</div>
+
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d">
+</div>
+
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1551024601-bec78aea704b">
+</div>
+
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187">
+</div>
+
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1464306076886-da185f6a9d05">
+</div>
+
+</div>
+
+</div>
+
+<div class="controls">
+
+<button onclick="subir()">▲</button>
+<button onclick="bajar()">▼</button>
+
+</div>
+
+</section>
+
+<section id="nosotros">
+    <h2 class="titulo" onclick="toggleSeccion()" style="cursor:pointer; color: #ff5d8f;">
+        Quiénes Somos ▼
+    </h2>
+
+    <div id="contenido-nosotros" style="display: none; text-align: center; transition: 0.5s;">
+        <p>Creamos tortas, cupcakes y postres personalizados para hacer inolvidables tus momentos especiales.</p>
+    </div>
+</section>
+
+<section id="productos">
+
+<h2 class="titulo">Nuestros Productos</h2>
+
+<div class="productos">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
+<h3>Tortas Personalizadas</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d">
+<h3>Cupcakes</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1551024601-bec78aea704b">
+<h3>Postres</h3>
+</div>
+
+</div>
+
+</section>
+
+<footer id="contacto">
+
+<div class="footer-grid">
+
+<div>
+<h3>Nazly Cake</h3>
+<p>Diseños personalizados para toda ocasión.</p>
+</div>
+
+<div>
+<h3>Contacto</h3>
+<p>+58 414-7539024</p>
+<p>info@nazlycake.com</p>
+</div>
+
+<div>
+<h3>Horario</h3>
+<p>Lunes a Sábado</p>
+<p>8:00 am - 11:00 pm</p>
+</div>
+
+</div>
+<footer class="social-links">
+    <h3>Síguenos en:</h3>
+   
+    <a href="https://facebook.com/TU_USUARIO" target="_blank">
+        <i class="fab fa-facebook"></i> Facebook
+    </a>
+    <a href="https://instagram.com/TU_USUARIO" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a href="https://wa.me/TUNUMERO" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+</footer>
+
+<div class="copy">
+© 2025 Nazly Cake - Todos los derechos reservados
+</div>
+
+</footer>
+
+<a
+class="whatsapp"
+href="https://wa.me/584120000000"
+target="_blank">
+
+<i class="fab fa-whatsapp"></i>
+ WhatsApp
+
+</a>
+
+<script>
+
+let indice=0;
+
+const track=
+document.getElementById("track");
+
+function actualizar(){
+
+track.style.transform=
+`translateY(-${indice*150}px)`;
+
+}
+
+function bajar(){
+
+if(indice<4){
+indice++;
+}else{
+indice=0;
+}
+
+actualizar();
+
+}
+
+function subir(){
+
+if(indice>0){
+indice--;
+}else{
+indice=4;
+}
+
+actualizar();
+
+}
+
+setInterval(bajar,3000);
+function toggleSeccion() {
+    var contenido = document.getElementById("contenido-nosotros");
+    if (contenido.style.display === "none") {
+        contenido.style.display = "block";
+    } else {
+        contenido.style.display = "none";
+    }
+}
+
+</script>
+
 </body>
 </html>

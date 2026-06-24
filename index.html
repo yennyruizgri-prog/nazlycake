@@ -28,32 +28,45 @@ overflow-x:hidden;
 /* MENU */
 
 header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:999;
-padding:25px 60px;
-background:rgba(255,255,255,.85);
-backdrop-filter:blur(10px);
+
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    /* Baja el logo y menú */
+    padding:45px 5% 30px 10%;
+    background-color:#ffffff;
+
+    /* Chocolate superior */
+    background-image:url('img/faralao.png');
+
+    background-repeat:repeat-x;
+
+    background-size:350px;
+     
 }
 
 nav ul{
 display:flex;
 justify-content:center;
-gap:60px;
+gap:80px;
 list-style:none;
 }
 
 nav a{
 text-decoration:none;
-color:#5a2d22;
+color:#ff5d8f;
 font-weight:600;
 transition:.3s;
 }
 
 nav a:hover{
-color:#ff5d8f;
+color:#77280e;
 }
 
 /* HERO */
@@ -63,7 +76,6 @@ color:#ff5d8f;
     /* Si la imagen sigue cortada, reduce este valor a algo como 80vh o 600px */
     height: 100vh; 
     
-    background-image: url("img/fondoweb1.png");
     
     /* Usamos 'contain' para que la imagen se vea completa */
     background-size: contain;       
@@ -74,11 +86,11 @@ color:#ff5d8f;
        '10%' es vertical (baja la imagen un 10% respecto al borde superior)
        Puedes cambiar '10%' por '15%' o '20%' para bajarla más.
     */
-    background-position: 0% 10%;  
+    background-position: 0% 20%;  
     
     background-repeat: no-repeat; 
     
-    background-color: #fdf5f6; 
+    background-color: #ffffff; /*color del fondo de nazly*/
     
     display: flex;
     justify-content: center;
@@ -121,7 +133,7 @@ text-shadow:
 
 font-size:28px;
 margin-top:20px;
-color:#5a2d22;
+color:#77280e;
 
 }
 
@@ -157,7 +169,7 @@ transform:translateY(-3px);
     position: absolute;
     right: 50px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-40%);
     width: 220px;
     height: 750px;
     background: #f8d9df; /* Cambiado a azul claro tipo turquesa */
@@ -206,7 +218,7 @@ transform:translateY(-3px);
     height: 55px;
     border: none;
     border-radius: 50%;
-    background: #ff5d8f;
+    background: #4B2C20;
     color: white;
     font-size: 22px;
     cursor: pointer;
@@ -340,7 +352,7 @@ color:#5a2d22;
 margin-top:40px;
 padding-top:20px;
 
-border-top:1px solid rgba(0,0,0,.1);
+border-top:1px solid rgba(48, 24, 24, 0.1);
 
 text-align:center;
 
@@ -374,7 +386,13 @@ flex-wrap:wrap;
 
 .logo-title{
 font-size:55px;
+color:#ff5d8f;
+text-shadow:
+5px 0 #1ac7ec,
+8px 8px 15px rgba(0,0,0,.15);
+
 }
+
 
 .hero-content p{
 font-size:20px;
@@ -401,13 +419,14 @@ body, p, button {
 .controls {
     position: absolute;
     right: 310px; /* Separamos los botones del borde derecho del carrusel */
-    top: 50%;
+    top: 80%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: 15px;
     z-index: 10; /* Aseguramos que estén por encima de otros elementos */
 }
+
 .social-links {
     text-align: center;
     padding: 20px;
@@ -417,21 +436,17 @@ body, p, button {
 .social-links a {
     margin: 0 15px;
     text-decoration: none;
-    color: #ff5d8f; /* El rosa de tu carrusel */
-    font-weight: 600;
-}
-header {
-    display: flex;
-    justify-content: space-between; /* Separa el logo del menú */
-    align-items: center;            /* Alinea ambos verticalmente */
-    padding: 10px 50px;
-    background-color: #fff;         /* O el color que prefieras */
+    color: #5a2d22; /* El rosa de tu carrusel */
+    font-weight: 500;
 }
 
+
+
 .logo img {
-    width: 120px;                   /* Ajusta este tamaño a tu gusto */
+    width: 100px;                   /* Ajusta este tamaño a tu gusto */
     height: auto;
 }
+
 
 nav ul {
     display: flex;
@@ -439,7 +454,32 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 40px;
+}
+
+/* Estilo para la barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5px; /* Damos espacio arriba para que se vea el chocolate */
+    padding-bottom: 20px;
+    padding-left: 5%;
+    padding-right: 5%;   
+    
+    
+}
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background-image:
+    radial-gradient(#ff7fa8 2px, transparent 2px),
+    radial-gradient(#32d7ff 2px, transparent 2px);
+
+    background-size:180px 180px;
+    opacity:.25;
+    pointer-events:none;
 }
 
 </style>
@@ -449,7 +489,7 @@ nav ul li {
 <header>
 <div class="logo">
         <a href="#">
-            <img src="img/logonuenvo1.png" alt="Logo de Nazly Cake">
+            <img src="img/logonazly26.png" alt="Logo de Nazly Cake">
         </a>
     </div>
 <nav>
@@ -522,7 +562,7 @@ Endulzamos tus momentos especiales
 </section>
 
 <section id="nosotros">
-    <h2 class="titulo" onclick="toggleSeccion()" style="cursor:pointer; color: #ff5d8f;">
+    <h2 class="titulo" onclick="toggleSeccion()" style="cursor:pointer; color: #5a2d22;">
         Quiénes Somos ▼
     </h2>
 

@@ -34,6 +34,7 @@
             align-items: center; position: relative; background-color: #ffffff;
             background-image: url('img/faralao.png'); background-repeat: repeat-x; background-size: 450px;
         }
+        
         .hero::before {
             content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .25;
             background-image: radial-gradient(#ff7fa8 2px, transparent 2px), radial-gradient(#32d7ff 2px, transparent 2px);
@@ -44,12 +45,12 @@
             font-family: 'Pacifico', cursive; font-size: 120px; line-height: 1; color: #ff5d8f;
             text-shadow: 4px 4px 0 #1ac7ec, 6px 6px 15px rgba(0,0,0,.15);
         }
-        .hero-content p { font-size: 28px; margin-top: 20px; color: #77280e; }
+        .hero-content p { font-size: 25px; margin-top: 20px; color: #77280e; }
         .titulo {
         text-align: center; 
-        margin-bottom: 50px; 
-        color: #4B2C20; /* Color chocolate, igual que la barra y el footer */
-        font-size: 40px; 
+        margin-bottom: 30px; 
+        color: #5a2d22; /* Color chocolate, igual que la barra y el footer */
+        font-size: 30px; 
         cursor: pointer; /* Esto mantiene la manito al pasar el mouse */
         }
 
@@ -73,12 +74,22 @@
         .whatsapp:hover { transform: scale(1.05); }
 
         /* 5. SECCIONES Y PRODUCTOS */
-        section { padding: 100px 10%; }
-        .titulo { text-align: center; margin-bottom: 50px; color: #5a2d22; font-size: 40px; cursor: pointer; }
-        .productos { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        section { padding: 50px 10%; }
+        .titulo { text-align: center; margin-bottom: 30px; color: #5a2d22; font-size: 30px; cursor: pointer; }
+        .productos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
         .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.103); }
         .card img { width: 100%; height: 220px; object-fit: cover; }
         .card h3 { padding: 20px; text-align: center; color: #4B2C20; font-size: 1.2em; }
+        /* Ajuste para que el texto sea más fácil de leer */
+.seccion-texto { 
+    max-width: 600px;   /* Limita el ancho para que no sea una línea infinita */
+    margin: 0 auto;     /* Centra el bloque de texto en la pantalla */
+    line-height: 1.6;   /* Da un poco más de espacio entre líneas para que respire */
+    text-align: center; /* Asegura que se mantenga centrado */
+}
+      
+
+        
 
         /* 6. FOOTER */
         footer { background: #4B2C20; padding: 60px 10%; color: white; }
@@ -91,11 +102,19 @@
         @media(max-width:1100px) { .carousel, .controls { display: none; } }
         @media(max-width:768px) { .logo-title { font-size: 55px; } }
         .flecha {
-        font-size: 35px; /* Prueba con 15px, 20px o 25px hasta que te guste */
+        font-size: 20x; /* Prueba con 15px, 20px o 25px hasta que te guste */
         margin-left: 10px; /* Esto separa un poco la flecha del texto */
         vertical-align: middle; /* Esto alinea la flecha perfectamente con el texto */
         display: inline-block;
         }
+        .descripcion {
+    max-width: 700px;        /* Limita el ancho para que no se estire demasiado */
+    margin: 0 auto;          /* Centra el bloque de texto horizontalmente */
+    text-align: center;      /* Centra el texto dentro del bloque */
+    line-height: 1.8;        /* Añade aire entre líneas para que sea elegante */
+    color: #5a2d22;          /* Mantén tu color chocolate */
+    font-size: 1.1em;        /* Un tamaño cómodo para leer */
+}
 
     </style>
 </head>
@@ -135,13 +154,14 @@
     <!-- ... (tu HTML se inserta aquí) ... -->
     <!-- SECCIÓN: QUIÉNES SOMOS - Limpio -->
    <section id="nosotros">
-       <h2 class="titulo" onclick="toggleSeccion()">
-            Quiénes Somos <span class="flecha">▼</span>
-        </h2>
-       <div id="contenido-nosotros" style="display: none; text-align: center; transition: 0.5s;">
-        <p>Creamos tortas, cupcakes y postres personalizados para hacer inolvidables tus momentos especiales.</p>
-        </div>
-     </section>
+    <h2 class="titulo">Quiénes Somos</h2>
+    <div id="contenido-nosotros">
+        <p class="descripcion">
+            En Nazly Cake, ponemos pasión en cada creación. Elaboramos tortas, cupcakes, postres, dulces shots, 
+            galletas y brownies totalmente personalizados para que tus celebraciones sean momentos inolvidables.
+        </p>
+    </div>
+</section>
 
     <!-- SECCIÓN: PRODUCTOS -->
     <section id="productos">

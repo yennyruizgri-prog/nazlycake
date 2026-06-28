@@ -81,16 +81,13 @@
         .card img { width: 100%; height: 220px; object-fit: cover; }
         .card h3 { padding: 20px; text-align: center; color: #4B2C20; font-size: 1.2em; }
         /* Ajuste para que el texto sea más fácil de leer */
-.seccion-texto { 
-    max-width: 600px;   /* Limita el ancho para que no sea una línea infinita */
-    margin: 0 auto;     /* Centra el bloque de texto en la pantalla */
-    line-height: 1.6;   /* Da un poco más de espacio entre líneas para que respire */
-    text-align: center; /* Asegura que se mantenga centrado */
+        .seccion-texto { 
+        max-width: 600px;   /* Limita el ancho para que no sea una línea infinita */
+        margin: 0 auto;     /* Centra el bloque de texto en la pantalla */
+        line-height: 1.6;   /* Da un poco más de espacio entre líneas para que respire */
+        text-align: center; /* Asegura que se mantenga centrado */
 }
       
-
-        
-
         /* 6. FOOTER */
         footer { background: #4B2C20; padding: 60px 10%; color: white; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
@@ -108,25 +105,44 @@
         display: inline-block;
         }
         .descripcion {
-    max-width: 700px;        /* Limita el ancho para que no se estire demasiado */
-    margin: 0 auto;          /* Centra el bloque de texto horizontalmente */
-    text-align: center;      /* Centra el texto dentro del bloque */
-    line-height: 1.8;        /* Añade aire entre líneas para que sea elegante */
-    color: #5a2d22;          /* Mantén tu color chocolate */
-    font-size: 1.1em;        /* Un tamaño cómodo para leer */
+        max-width: 700px;        /* Limita el ancho para que no se estire demasiado */
+        margin: 0 auto;          /* Centra el bloque de texto horizontalmente */
+        text-align: center;      /* Centra el texto dentro del bloque */
+        line-height: 1.8;        /* Añade aire entre líneas para que sea elegante */
+        color: #5a2d22;          /* Mantén tu color chocolate */
+        font-size: 1.1em;        /* Un tamaño cómodo para leer */
 }
+        /* ESTILOS DEL DESPLEGABLE */
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none; position: absolute; background-color: #f9f9f9;
+            min-width: 150px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            top: 100%; border-radius: 5px;
+        }
+        .dropdown-content li a { color: #4B2C20 !important; padding: 10px; display: block; }
+        .dropdown-content li a:hover { background-color: #FFD1DC; }
+        .dropdown:hover .dropdown-content { display: block; }
 
     </style>
 </head>
-<>
+
 
     <header>
-        <div class="logo"><a href="#"><img src="img/logonazly26.png" alt="Logo"></a></div>
+        <div class="logo"><a href="index.html"><img src="img/logonazly26.png" alt="Logo"></a></div>
         <nav>
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#productos">Tortas</a></li>
-                <li><a href="#productos">Cupcakes</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#">Tortas <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-content">
+                        <li><a href="tortas-ninos.html">Niños</a></li>
+                        <li><a href="tortas-adultos.html">Adultos</a></li>
+                        <li><a href="tortas-15.html">15 Años</a></li>
+                        <li><a href="tortas-eventos.html">Eventos</a></li>
+                    </ul>
+                </li>
+                <li><a href="postres.html">Postres</a></li>
+                <li><a href="cupcakes.html">Cupcakes</a></li>
                 <li><a href="#nosotros">Quiénes Somos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
